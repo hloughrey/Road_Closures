@@ -1,0 +1,28 @@
+{
+  "name": "node_api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "docker:dev": "docker run --rm -it -p 9000:9000 -v $(pwd):/usr/src/app node:8.17.0-alpine ash",
+    "build": "babel src --out-dir dist",
+    "restart": "rm -rf dist && yarn build && yarn start",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --verbose --exec yarn restart",
+    "start": "node dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "pg": "^7.17.1",
+    "prettier": "^1.19.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.7.7",
+    "@babel/core": "^7.7.7",
+    "@babel/plugin-proposal-object-rest-spread": "^7.7.7",
+    "@babel/preset-env": "^7.7.7"
+  }
+}
